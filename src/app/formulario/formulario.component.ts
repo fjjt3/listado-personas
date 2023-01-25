@@ -9,21 +9,14 @@ import { PersonasService } from '../persona.service';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent  {
-  
-  //@Output() personaCreada = new EventEmitter<Persona>();
-
-  @ViewChild('nombreInput') nombreInput: ElementRef ;
-  @ViewChild('apellidoInput') apellidoInput: ElementRef;
+  nombreInput:string;
+  apellidoInput:string;  
 
   constructor(private loggingService:LoggingService,
     private personaService:PersonasService){}
 
   agregarPersona(){
-    let persona1 = new Persona(
-      this.nombreInput.nativeElement.value, 
-      this.apellidoInput.nativeElement.value);
-    //this.loggingService.enviaMensajeAConsola('Enviamos persona con nombre:' + persona1.nombre + ', apellido:' + persona1.apellido);
-    //this.personaCreada.emit(persona1);
+    let persona1 = new Persona(this.nombreInput, this.apellidoInput);
     this.personaService.agregarPersona(persona1);
   }
 

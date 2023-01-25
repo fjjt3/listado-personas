@@ -7,7 +7,7 @@ export class PersonasService {
   personas: Persona[] = [
     new Persona('Juan', 'Perez'),
     new Persona('Laura', 'Juarez'),
-  ];
+  ]; 
 
   saludar = new EventEmitter<number>();
 
