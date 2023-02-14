@@ -6,13 +6,18 @@ import { Injectable } from '@angular/core';
 
 export class DataServices{
     constructor(private httpClient: HttpClient){}
+    
+    // Get Person
+    cargarPersonas(){
+        return this.httpClient.get('https://listado-personas-503a9-default-rtdb.europe-west1.firebasedatabase.app/datos.json');
+    }
 
     // Save Person
     guadarPersonas(personas: Persona[]){
         this.httpClient.put('https://listado-personas-503a9-default-rtdb.europe-west1.firebasedatabase.app/datos.json', personas)
         .subscribe(
-            response => console.log("resultado guardar Personas " + response),
-                error => console.log("Error al guardar Personas " + error)
+            response => console.log("resultado guardar Personas: " + response),
+                error => console.log("Error al guardar Personas: " + error)
             
         );
     }
