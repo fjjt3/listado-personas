@@ -44,5 +44,14 @@ export class PersonasService {
 
   eliminarPersona(index:number){
     this.personas.splice(index,1);
+    this.eliminarPersona(index);
+    //se vuelve a guardar el array para rengenar los indices
+    this.modifyPersonas();
+  }
+
+  modifyPersonas(){
+    if(this.personas != null){
+      this.dataServices.guadarPersonas(this.personas)
+    }
   }
 }
