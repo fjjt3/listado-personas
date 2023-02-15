@@ -8,7 +8,7 @@ export class DataServices{
     constructor(private httpClient: HttpClient){}
 
     // Save Person
-    guadarPersonas(personas: Persona[]){
+    guardarPersonas(personas: Persona[]){
         this.httpClient.put('https://listado-personas-503a9-default-rtdb.europe-west1.firebasedatabase.app/datos.json', personas)
         .subscribe(
             response => console.log("resultado guardar Personas " + response),
